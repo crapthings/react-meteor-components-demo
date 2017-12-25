@@ -1,0 +1,3 @@
+[submodule "packages/react-meteor-components"]
+	path = packages/react-meteor-components
+	url = https://github.com/crapthings/react-meteor-components
