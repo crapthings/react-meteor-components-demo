@@ -1,5 +1,5 @@
 {
-  "name": "another",
+  "name": "react-meteor-components-demo",
   "private": true,
   "scripts": {
     "start": "meteor run"

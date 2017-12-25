@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 
 import { WithSubscribe, WithTracker, WithCall } from 'meteor/crapthings:react-meteor-components'
-console.log(WithSubscribe)
 
 const Demo1 = () => {
   return (
