@@ -17,5 +17,9 @@ Meteor.publish('user', function () {
 Meteor.methods({
   users() {
     return Users.find().fetch()
-  }
+  },
+
+  addUser(name) {
+    return Users.insert({ name: name || faker.name.findName() })
+  },
 })
