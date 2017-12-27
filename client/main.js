@@ -8,7 +8,7 @@ const Demo1 = () => {
     <div>
       <h3>subscribe to an reactive list</h3>
       <WithSubscribe name='users'>
-        <WithTracker list={props => Users.find()}>
+        <WithTracker list={context => Users.find()}>
           {({ data: { list: users } }) => (
             users.map(({ _id, name }) => (
               <div key={_id}>{name}</div>
@@ -25,7 +25,7 @@ const Demo2 = () => {
     <div>
       <h3>subscribe to an reactive item</h3>
       <WithSubscribe name='user'>
-        <WithTracker item={props => Users.findOne()}>
+        <WithTracker item={context => Users.findOne()}>
           {({ data: { item: { _id, name} } }) => (
             <div>{name}</div>
           )}
@@ -42,7 +42,7 @@ const Demo3 = () => {
       <WithSubscribe name='users'>
         <WithTracker data={{
           title: 'this is a title',
-          users: props => Users.find(),
+          users: context => Users.find(),
         }}>
           {({ data: { title, users } }) => (
             <div>
