@@ -63,7 +63,11 @@ const Demo4 = () => {
     <div>
       <h3>meteor call</h3>
       <WithCall name='users'>
-        ?
+        {({ data: users }) => {
+          return users.map(({ _id, name }) => (
+            <div key={_id}>{name}</div>
+          ))
+        }}
       </WithCall>
     </div>
   )
