@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
 import lfc from 'lodash-form-collector'
 
 import {
@@ -8,6 +7,7 @@ import {
   WithCall,
   WithUserId,
   WithoutUserId,
+  Mount,
 } from 'meteor/crapthings:react-meteor-components'
 
 const Demo1 = () => {
@@ -117,18 +117,17 @@ const Demo6 = () => {
   )
 }
 
-const Example = () => <div id='example-wrapper'>
-  <Demo1 />
-  <Demo2 />
-  <Demo3 />
-  <Demo4 />
-  <Demo5 />
-  <Demo6 />
-</div>
+const Example = () => {
+  return (
+    <div id='example-wrapper'>
+      <Demo1 />
+      <Demo2 />
+      <Demo3 />
+      <Demo4 />
+      <Demo5 />
+      <Demo6 />
+    </div>
+  )
+}
 
-Meteor.startup(function () {
-  const app = document.createElement('div')
-  app.id = 'app-wrapper'
-  document.body.appendChild(app)
-  render(<Example />, app)
-})
+Mount(<Example />)
