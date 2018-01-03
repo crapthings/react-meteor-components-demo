@@ -10,12 +10,17 @@ import {
   Mount,
 } from 'meteor/crapthings:react-meteor-components'
 
+const demo1 = opt => props => {
+  console.log(opt, props)
+  return Users.find()
+}
+
 const Demo1 = () => {
   return (
     <div>
       <h3>subscribe to an reactive list</h3>
       <WithSubscribe name='users'>
-        <WithTracker list={context => Users.find()}>
+        <WithTracker demo='123' list={demo1('asd')}>
           {({ data: { list: users } }) => (
             users.map(({ _id, name }) => (
               <div key={_id}>{name}</div>
@@ -49,7 +54,10 @@ const Demo3 = () => {
       <WithSubscribe name='users'>
         <WithTracker data={{
           title: 'this is a title',
-          users: context => Users.find(),
+          users: context => {
+            console.log('what is', context)
+            return Users.find()
+          },
         }}>
           {({ data: { title, users } }) => (
             <div>
@@ -121,13 +129,21 @@ const Example = () => {
   return (
     <div id='example-wrapper'>
       <Demo1 />
-      <Demo2 />
-      <Demo3 />
-      <Demo4 />
-      <Demo5 />
-      <Demo6 />
     </div>
   )
 }
+
+// const Example = () => {
+//   return (
+//     <div id='example-wrapper'>
+//       <Demo1 />
+//       <Demo2 />
+//       <Demo3 />
+//       <Demo4 />
+//       <Demo5 />
+//       <Demo6 />
+//     </div>
+//   )
+// }
 
 Mount(<Example />)
